@@ -1,0 +1,6 @@
+{
+    "l2-infra": "12",
+    "l2-network": "2",
+    "spine-mcast": "1",
+    "mcast-infra": "7"
+}

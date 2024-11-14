@@ -1,0 +1,44 @@
+{
+  "intent-type" : "leaf-spine-mcast-infra",
+  "version" : "3",
+  "mapping-engine" : "js-scripted",
+  "composite" : true,
+  "label" : [ "Copper", "PON", "Service Infra", "Spine", "User Service" ],
+  "internal-label" : [ ],
+  "priority" : "100",
+  "target-component" : [ {
+    "name" : "service-name",
+    "order" : "1",
+    "pattern" : "[A-Za-z0-9_.-]{0,19}",
+    "value-type" : "STRING",
+    "i18n-text" : "Service Name"
+  } ],
+  "parent-instance-intent-type" : [ ],
+  "category" : [ "layer-2-infrastructure", "user-service", "video-infrastructure" ],
+  "instance-depends-on-category" : [ "copper-config", "copper-link", "layer-2-infrastructure", "link-aggregator", "uplink-connectivity", "user-device" ],
+  "resourceDirectory" : "intent-type-resources",
+  "lifecycle-state" : "released",
+  "live-state-retrieval" : "false",
+  "support-nested-type-in-es" : "true",
+  "author" : "adminuser",
+  "date" : "Nov 14, 2024 5:18:47 PM",
+  "build" : "24.12.0-MAIN_14743",
+  "custom-field" : { },
+  "supports-network-state-suspend" : "true",
+  "return-config-as-json" : "false",
+  "supports-health" : "always",
+  "supports-asynchronous-operations" : "true",
+  "asynchronous-operation-timeout" : "300",
+  "migration-support" : [ {
+    "supported-version" : 2,
+    "migration-handler" : "migrateFromV2ToV3",
+    "rollback-handler" : "rollBackToV2"
+  } ],
+  "notify-intent-instance-events" : "false",
+  "skip-device-connectivity-check" : "false",
+  "support-aggregated-request" : "false",
+  "composite-type" : "dynamic-child-intents",
+  "composite-definition-v2" : {
+    "child-intent-type" : [ "l2-infra", "l2-network", "mcast-infra", "spine-mcast" ]
+  }
+}

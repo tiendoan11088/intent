@@ -1,0 +1,23 @@
+<rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+   <get>
+      <filter type="subtree">
+         <anv:device-manager xmlns:anv="http://www.nokia.com/management-solutions/anv">
+            <adh:device xmlns:adh="http://www.nokia.com/management-solutions/anv-device-holders">
+               <adh:device-id>${deviceID}</adh:device-id>
+               <adh:device-specific-data>
+                  <state:state xmlns:state="urn:nokia.com:sros:ns:yang:sr:state">
+                    <#list listLtPort as key, ltPort>
+                        <state:port>
+                            <state:port-id>${ltPort}</state:port-id>
+                            <state:ethernet>
+                                <state:oper-speed/>
+                            </state:ethernet>
+                        </state:port>
+                    </#list>
+                  </state:state>
+               </adh:device-specific-data>
+            </adh:device>
+         </anv:device-manager>
+      </filter>
+   </get>
+</rpc>

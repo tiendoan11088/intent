@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- (c) 2020 Nokia. All Rights Reserved. -->
+<!-- INTERNAL - DO NOT COPY / EDIT -->
+<!-- This request xml retrieves  barcode configuration -->
+<rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+    <get>
+        <filter type="pruned-subtree">
+            <anv:device-manager xmlns:anv="http://www.nokia.com/management-solutions/anv">
+                <adh:barcode-configuration
+                        xmlns:adh="http://www.nokia.com/management-solutions/anv-device-holders"/>
+            </anv:device-manager>
+        </filter>
+    </get>
+</rpc>

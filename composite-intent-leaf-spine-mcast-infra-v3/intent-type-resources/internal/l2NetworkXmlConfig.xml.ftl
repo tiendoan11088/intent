@@ -1,0 +1,10 @@
+<intent-specific-data>
+	<l2-network
+		xmlns='http://www.nokia.com/management-solutions/l2-network'>
+		<l2-infra>${l2InfraName}</l2-infra>
+		<network-service-profile>${networkServiceProfile}</network-service-profile>
+		<nni-id>${nniId}</nni-id>
+		<none></none>
+		<untag></untag>
+	</l2-network>
+</intent-specific-data>

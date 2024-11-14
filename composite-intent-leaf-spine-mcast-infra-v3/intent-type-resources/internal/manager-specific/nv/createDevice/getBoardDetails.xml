@@ -1,0 +1,30 @@
+<#ftl output_format="XML"><?xml version="1.0"?>
+<#-- (c) 2020 Nokia. All Rights Reserved. -->
+<#-- Retrieves the DUID from the device -->
+<rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns:xc="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="9">
+    <get>
+        <filter type="pruned-subtree">
+            <anv:device-manager xmlns:anv="http://www.nokia.com/management-solutions/anv">
+                <adh:device xmlns:adh="http://www.nokia.com/management-solutions/anv-device-holders">
+                    <adh:device-id>${deviceID}</adh:device-id>
+                    <adh:device-specific-data>
+                        <hw:hardware-state xmlns:hw="urn:ietf:params:xml:ns:yang:ietf-hardware">
+                           <hw:component>  
+                            <hw:name/>   
+                            <hw:parent/>
+                            <hw:class xmlns:nokia-hwi="http://www.nokia.com/Fixed-Networks/BBA/yang/nokia-hardware-identities">nokia-hwi:nt</hw:class>
+                            <nokia-sdan-hw-duid:duid xmlns:nokia-sdan-hw-duid="http://www.nokia.com/Fixed-Networks/BBA/yang/nokia-sdan-hardware-duid"/>
+                           </hw:component>
+                          <hw:component>
+                            <hw:name/>    
+                            <hw:parent/>                           
+                            <hw:class xmlns:nokia-hwi="http://www.nokia.com/Fixed-Networks/BBA/yang/nokia-hardware-identities">nokia-hwi:lt</hw:class>
+                            <nokia-sdan-hw-duid:duid xmlns:nokia-sdan-hw-duid="http://www.nokia.com/Fixed-Networks/BBA/yang/nokia-sdan-hardware-duid"/>
+                           </hw:component>
+                        </hw:hardware-state>
+                    </adh:device-specific-data>
+                </adh:device>
+            </anv:device-manager>
+        </filter>
+    </get>
+</rpc>

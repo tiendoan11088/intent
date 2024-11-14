@@ -1,0 +1,16 @@
+<rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+   <get>
+      <filter type="subtree">
+         <anv:device-manager xmlns:anv="http://www.nokia.com/management-solutions/anv">
+            <adh:device xmlns:adh="http://www.nokia.com/management-solutions/anv-device-holders">
+               <adh:device-id>${deviceID}</adh:device-id>
+               <adh:device-specific-data>
+                  <sys:system xmlns:sys="urn:ietf:params:xml:ns:yang:ietf-system">
+                    <nokia-sdan-vmac-host-id-aug:host-id xmlns:nokia-sdan-vmac-host-id-aug="http://www.nokia.com/Fixed-Networks/BBA/yang/nokia-sdan-vmac-host-id-aug"/>
+                   </sys:system>
+               </adh:device-specific-data>
+            </adh:device>
+         </anv:device-manager>
+      </filter>
+   </get>
+</rpc>

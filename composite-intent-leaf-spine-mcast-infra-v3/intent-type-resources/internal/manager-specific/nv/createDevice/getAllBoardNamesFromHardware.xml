@@ -1,0 +1,57 @@
+<#ftl output_format="XML"><?xml version="1.0" encoding="UTF-8"?>
+<#-- (c) 2020 Nokia. All Rights Reserved. -->
+<#-- Retrieves all the LT boards from FX Shelf -->
+<rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+    <get>
+        <filter type="subtree">
+            <anv:device-manager xmlns:anv="http://www.nokia.com/management-solutions/anv">
+                <adh:device xmlns:adh="http://www.nokia.com/management-solutions/anv-device-holders">
+                    <adh:device-id>${deviceID}</adh:device-id>
+                    <adh:device-specific-data>
+                        <hw:hardware-state xmlns:hw="urn:ietf:params:xml:ns:yang:ietf-hardware">
+                            <#if restartMode?? && restartMode == "hardware-reset-to-factory-datastore">
+                            <hw:component>
+                                <hw:name/>
+                                <hw:class xmlns:nokia-hwi="http://www.nokia.com/Fixed-Networks/BBA/yang/nokia-hardware-identities">nokia-hwi:lt</hw:class>
+                            </hw:component>
+                            <hw:component>  
+                                <hw:name/>   
+                                <hw:class xmlns:nokia-hwi="http://www.nokia.com/Fixed-Networks/BBA/yang/nokia-hardware-identities">nokia-hwi:nt</hw:class>
+                            </hw:component>
+                            <hw:component>  
+                                <hw:name/>   
+                                <hw:class xmlns:nokia-hwi="http://www.nokia.com/Fixed-Networks/BBA/yang/nokia-hardware-identities">nokia-hwi:ntio</hw:class>
+                            </hw:component>
+                            <#else>
+                            <hw:component>
+                                <hw:name/>
+                                <hw:class xmlns:nokia-hwi="http://www.nokia.com/Fixed-Networks/BBA/yang/nokia-hardware-identities">nokia-hwi:lt</hw:class>
+                            </hw:component>
+                            <hw:component>  
+                                <hw:name/>   
+                                <hw:class xmlns:nokia-hwi="http://www.nokia.com/Fixed-Networks/BBA/yang/nokia-hardware-identities">nokia-hwi:nt</hw:class>
+                            </hw:component>
+                            <hw:component>  
+                                <hw:name/>   
+                                <hw:class xmlns:nokia-hwi="http://www.nokia.com/Fixed-Networks/BBA/yang/nokia-hardware-identities">nokia-hwi:ntio</hw:class>
+                            </hw:component>
+                            <hw:component>  
+                                <hw:name/>   
+                                <hw:class xmlns:nokia-hwi="http://www.nokia.com/Fixed-Networks/BBA/yang/nokia-hardware-identities">nokia-hwi:fan-pack</hw:class>
+                            </hw:component>
+                            <hw:component>  
+                                <hw:name/>   
+                                <hw:class xmlns:nokia-hwi="http://www.nokia.com/Fixed-Networks/BBA/yang/nokia-hardware-identities">nokia-hwi:acu</hw:class>
+                            </hw:component>
+                            <hw:component>  
+                                <hw:name/>   
+                                <hw:class xmlns:nokia-hwi="http://www.nokia.com/Fixed-Networks/BBA/yang/nokia-hardware-identities">nokia-hwi:psu</hw:class>
+                            </hw:component>
+                            </#if>
+                        </hw:hardware-state>
+                    </adh:device-specific-data>
+                </adh:device>
+            </anv:device-manager>
+        </filter>
+    </get>
+</rpc>

@@ -1,0 +1,27 @@
+<rpc
+	xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+	<get-config>
+		<source>
+			<running/>
+		</source>
+		<filter type="subtree">
+			<anv:device-manager
+				xmlns:anv="http://www.nokia.com/management-solutions/anv">
+				<adh:device
+					xmlns:adh="http://www.nokia.com/management-solutions/anv-device-holders">
+					<adh:device-id>${deviceID}</adh:device-id>
+					<adh:device-specific-data>
+						<conf:configure
+							xmlns:conf="urn:nokia.com:sros:ns:yang:sr:conf">
+							<conf:service>
+								<conf:vpipe/>
+								<conf:vpipe-group/>
+								<conf:vpls/>
+							</conf:service>
+						</conf:configure>
+					</adh:device-specific-data>
+				</adh:device>
+			</anv:device-manager>
+		</filter>
+	</get-config>
+</rpc>

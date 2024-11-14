@@ -1,0 +1,10 @@
+[
+    {
+        "profile-type": "cluster-traffic-profile",
+        "subtype": "All",
+        "default-profiles": [
+            "default"
+        ],
+        "when-modified-or-associated-or-dissociated": "mark-misaligned-only-when-modified"
+    }
+]

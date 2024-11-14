@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- (c) 2020 Nokia. All Rights Reserved. -->
+<!-- INTERNAL - DO NOT COPY / EDIT -->
+<!-- This request xml retrieves label category  -->
+<rpc message-id="1" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+    <get xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+        <filter type="pruned-subtree">
+            <ema:ema-administration
+                    xmlns:ema="http://www.nokia.com/management-solutions/ema-administration">
+                <ema:labels>
+                    <ema:category></ema:category>
+                </ema:labels>
+            </ema:ema-administration>
+        </filter>
+    </get>
+</rpc>
